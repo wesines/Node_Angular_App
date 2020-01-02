@@ -1,0 +1,103 @@
+<!--
+
+<form [formGroup]="noteForm" (ngSubmit)="onSaveNoteandComment()">
+
+ <div class="col"></div>
+ <div class="col-6">  <h1>   {{ cours.name }}  </h1></div>
+ <div class="col"> 
+
+  <div class="col-md-3" >
+    <img src="{{ cours.image }} " style="width: 100px;height:100px"  >
+  </div>
+ </div>
+
+
+
+ <div class="col-md-9">  
+    <div class="form-group">
+      <label  for="note">Veuiller choisir une note</label>
+      <select id="note" class="form-control" formControlName="note">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+  
+    </div>
+    <div class="form-group">
+    <textarea [(ngModel)]="comment.message" placeholder="Veuillez ajouter votre commentaire"></textarea>
+    </div>
+    <div   style="text-align: right;">
+     <button class="btn btn-success" [disabled]=" noteForm.invalid" type="submit">Enregistrer</button>
+    </div>
+
+ </div>
+
+<div class="row">
+</div clas="col"></div>
+<div class="col">
+  <div *ngIf="comments.length>0; else
+  noComments">
+  <h3>Liste des messages :</h3>
+  <ul>
+  <li *ngFor="let c of avis">
+  {{c.date}} : {{c.message}}</li>
+  </ul>
+  </div>
+  <ng-template #noComments>
+    <p> Liste des commentaires est vide</p>
+    </ng-template>
+</div>
+</div>
+</div clas="col"></div>
+</form>
+-->
+<form [formGroup]="noteForm" (ngSubmit)="onSaveNoteandComment()">
+
+<div class="container">
+  <div class="col"></div>
+  <div class="col-6"> 
+     <h1>   {{ cours.name }}  </h1>
+    <input type="hidden" value="{{id}}">
+  </div>
+  <div class="col"> 
+  <div class="col-md-3" >
+    <img  src="{{cours.image }}" style="width: 100px;height:100px"  >
+  </div>
+</div>
+<p></p>
+  <div class="form-group">
+ <div>
+      <label  for="valeur">Veuiller choisir une note</label>
+      <select id="valeur" class="form-control" formControlName="valeur">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+  </div>
+  <label for="message">Message:</label>
+  <textarea id="message"  class="form-control" formControlName="message" placeholder="Veuillez écrire votre commentaire"></textarea>
+  <button (click)="onSaveNoteandComment()"  class="btn btn-success">Ajouter un commentaire</button>
+  </div>
+  <div *ngIf="avis.length>0; else noComments">
+  <h3>Liste des messages :</h3>
+  <ul class="list-group">
+ 
+  <li *ngFor="let av of avis" class="list-groupitem"> 
+    Note  {{av.valeur}} -- 
+            {{av.message}}
+            <span   class="badge">{{av.date}}</span>
+
+  </li>
+  </ul>
+  </div>
+  <ng-template #noComments>
+  <p> Liste des commentaires est vide</p>
+  </ng-template>
+</div>
+</form>
+  <button (click)="onBack()"  class="btn btn-success">Retour</button>
+

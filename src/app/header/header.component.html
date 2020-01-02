@@ -1,0 +1,23 @@
+<nav class="navbar navbar-light" style="background-color: #FFD700;">
+        <div class="container">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active" class="active">
+         <h2>   "KOUL" To Be COOL</h2>
+        </li>
+      </ul>
+       
+      <ul class="nav navbar-nav navbar-right">
+            <li routerLinkActive="active" *ngIf="!isAuth">
+              <a routerLink="auth/signup">Créer un compte</a>
+            </li>
+            <li routerLinkActive="active" *ngIf="!isAuth">
+                    <a routerLink="auth/signin">Connexion</a>
+                  </li>
+        <li routerLinkActive="active" *ngIf="isAuth">
+           <a (click)="onSignOut()" style="cursor: pointer;" class="" routerLink="courses">Déconnexion</a>
+          </li>
+
+       </ul>
+    </div>
+
+</nav>

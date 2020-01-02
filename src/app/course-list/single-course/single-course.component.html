@@ -1,0 +1,107 @@
+
+<p></p>
+  <div class="row" >
+    <div class="col"></div>
+    <div class="col-6">  <h1>   {{ cours.name }}  </h1></div>
+    <div class="col"></div>
+  </div>
+ <div class="row"  class="doNotPrint">
+    <div class="col" style="align-items: center;">
+      <table style="align-items:center"><tr><td>
+      <span *ngFor='let N of tabetoilevide ; index as NB '>
+      <img src="../assets/images/etoilepleine.png"  style="width: 30px;height:30px" > 
+      
+      </span>
+ 
+    <span  *ngFor='let N of tabetoilepleine ; index as NB '>
+      <img src="../assets/images/etoilevide.png"  style="width: 30px;height:30px" >
+    </span>
+    <span><a href="courses/noteandcomments/{{index}}">Avis et commentaire</a></span>
+     </td> </tr></table>
+    
+  
+    </div>
+    <div class="col"></div>
+    <div class="col"></div>
+  </div>
+
+
+  <div class="row"  class="doNotPrint">
+    <div class="col"><img src="{{ cours.image }}" ></div>
+  
+  </div>
+  <div class="row">
+    <div class="col"><span class="soustitre">Durée de préparation </span></div>
+    <div class="col"> <span class="soustitre"> Nombre de personnes</span> </div>
+    <div class="col">
+      <span *ngIf="cours.difficulty=='Facile'">
+        <img src="../assets/images/etoilepleine.png"  style="width: 30px;height:30px" > 
+        <img src="../assets/images/etoilevide.png"  style="width: 30px;height:30px" >
+
+        <img src="../assets/images/etoilevide.png"  style="width: 30px;height:30px" >
+
+       </span>
+      <span *ngIf="cours.difficulty=='Moyen'">
+        <img src="../assets/images/etoilepleine.png"  style="width: 30px;height:30px" > 
+        <img src="../assets/images/etoilepleine.png"  style="width: 30px;height:30px" > 
+        <img src="../assets/images/etoilevide.png"  style="width: 30px;height:30px" >
+
+      </span>
+      <span *ngIf="cours.difficulty=='Difficile'">
+        <img src="../assets/images/etoilepleine.png"  style="width: 30px;height:30px" > 
+        <img src="../assets/images/etoilepleine.png"  style="width: 30px;height:30px" > 
+        <img src="../assets/images/etoilepleine.png"  style="width: 30px;height:30px" >       </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col"><span class="special">{{ cours.duration }} </span></div>
+    <div class="col"><span class="special">  {{ cours.NBperson }}</span> </div>
+    <div class="col"><span class="special">{{ cours.difficulty }} </span></div>
+  </div>
+  <div class="row">
+    <div class="col"><span class="titre"> Ingredients </span></div>
+    <div class="col"><span class="titre">Préparation</span></div>
+    <div class="col"><h5   (click)="onPrint()">Imprimer</h5> 
+      <img  (click)="onPrint()" src="../assets/images/imprimer.png"  style="width: 16px;height:16px" ></div>
+  </div>
+  <div class="row">
+    <div class="col"> {{ cours.ingredient }} </div>
+    <div class="col">{{ cours.preparation }}</div>
+    <div class="col"></div>
+  </div>
+
+ 
+
+<div class="row"  class="doNotPrint">
+  <div class="col">  </div>
+  <div class="col"></div>
+  <div class="col"><button class="btn btn-outline-info" (click)="onBack()">Retour</button></div>
+</div>
+
+
+
+
+
+
+
+
+<!--
+
+<div class="row">
+        <div class="col-xs-12">
+        Nom  <h1>{{ cours.name }}</h1>
+         duree <h3>{{ cours.duration }}</h3>
+        Preparation  <p>{{ cours.preparation }}</p>
+        ingredient  <p>{{ cours.ingredient }}</p>
+         note <p>{{ cours.note }}</p>
+        categorie <p>{{ cours.selectedCategory }}</p>
+          difficulté<p>{{ cours.difficulty }}</p>
+nombre de personne<p>{{ cours.NBperson }}</p>
+          <button class="btn btn-default" (click)="onBack()">Retour</button>
+         
+
+        </div>
+      </div>
+
+
+-->

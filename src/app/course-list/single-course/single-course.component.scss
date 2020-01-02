@@ -1,0 +1,33 @@
+.titre{
+    font-size: 32px;
+    color:rgb(233, 105, 0);
+    font-family: Trebuchet MS, Arial, sans-serif;
+    text-align: center;
+    font-weight:bold;
+    font-weight:400;
+}
+
+.soustitre{
+    font: 19px Trebuchet MS;
+    color:rgb(192, 93, 0);
+    font-weight:bold;
+    text-align: center;
+}
+div{
+    font-family: cursive, Arial, sans-serif;
+    text-align: center;
+  // border: 1px solid;
+  // border-color: rgba(207, 207, 207, 0.925);;
+    
+    font-size: 16px;
+}
+.special{
+    font-family: Trebuchet MS, Arial, sans-serif;
+    text-align: center;
+    color:rgb(233, 105, 0);
+    //font-weight:bold;
+    font-size: 26px; 
+}
+@media print{
+    .doNotPrint{display:none !important;}
+  }

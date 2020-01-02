@@ -1,0 +1,42 @@
+<p></p>
+<div class="card" style="width: 30rem;"style="align-content: center;">
+        <div class="card-body">
+          <h3 class="card-title">Créer un compte</h3>
+<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+    <label >Email  </label>
+    <input type="text" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" >
+    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="f.email.errors.required">Email is required</div>
+        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+  </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>Mot de passe</label>
+            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Mot de passe vide</div>
+                <div *ngIf="f.password.errors.minlength">Le mot de passe doit contenir au moins 6 caracteres</div>
+            </div>
+        </div>
+<!--
+        <div class="form-group">
+            <label>Confirmation mot de passe </label>
+            <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                <div *ngIf="f.confirmPassword.errors.required">confirmation mot de passe vide</div>
+                <div *ngIf="f.confirmPassword.errors.mustMatch">les mots de passe ne sont pas identiques</div>
+            </div>
+        </div>
+-->
+   
+   <button class="btn btn-primary" type="submit" >Valider</button>
+<p class="class-danger">{{errorMessage}}</p>
+
+</form>
+
+
+</div>
+</div>

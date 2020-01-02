@@ -1,0 +1,56 @@
+
+  <p>
+    <button type="button" 
+               class="btn btn-outline-success" (click)="onNewCourse()">
+               Ajouter une recette
+         </button>
+  </p>
+   <div class="row"  >
+   
+  <div class="col-md-3"   *ngFor='let c of courses ; index as i'    > 
+      <span class="card; "style="cursor: pointer;align-content: center;" (click)="onViewCourse(i)"  >
+        <img class="card-img-top" *ngIf="c.image" src="{{c.image}}" alt="Card image cap" >
+        <div>
+          <p></p>
+          <h3 class="text-center"  style="font-style: italic; color:darkgoldenrod">{{ c.name }}</h3>
+         <span class="text-center"  >
+
+
+ 
+
+         </span>
+        
+          <p></p>
+          </div> 
+      </span>
+       <ul class="list-group list-group-flush"> 
+          <li class="btn btn-outline-info" ><span (click)="onViewCourse(i)"> Voir Détail</span>   </li>
+          <li class="btn btn-outline-info " ><span (click)="onEditCourses(i)"> Modifier</span>   </li>
+          <li class="btn btn-outline-info"    
+      mwlConfirmationPopover
+      [popoverTitle]="popoverTitle"
+      [popoverMessage]="popoverMessage"
+     
+      (confirm)="onDeleteCourses(c)"
+      (cancel)="cancelClicked = true">
+      Supprimer
+      
+         
+       
+           
+          </li>     
+       </ul>
+      
+  </div>
+  <div class="col-md-3" > </div>
+ <div class="col-md-3" >  </div>
+
+
+
+</div>
+
+<!-- Modal -->
+
+    <!--
+              <img src="../assets/images/supprimer.png"  style="width: 16px;height:16px" >
+            -->    
