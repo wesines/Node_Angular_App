@@ -18,7 +18,8 @@ fileUrl: string;
 fileUploaded = false;
     itemNumberArray = [1, 2, 3, 4,5,6,7,8,9,10];
       typesCategories = [];
-  
+      diff=["Facile","Moyen","Difficile"];
+ 
 
 
 
@@ -29,7 +30,7 @@ fileUploaded = false;
       ingredient:['',Validators.required],
       NBperson:['',Validators.required],
       difficulty:['',Validators.required],
-      note:['',Validators.required],
+     // note:['',Validators.required],
       duration:['',Validators.required],
       
     types: new FormArray([])
@@ -41,27 +42,8 @@ fileUploaded = false;
    }
 
   ngOnInit() { this.itemNumberArray;}
-  //  this.typesCategories=this.courseService.getCategoriesTypes();
- //   this.courseForm = this.formBuilder.group({typesCategories: this.formBuilder.array([])
- //   })
- //   this.initForm();
-  
+ 
 
- /*
-  initForm(){
-   console.log("i am in courseformcomponent");
-    this.courseForm=this.formBuilder.group({
-      name:['',Validators.required],
-      preparation:['',Validators.required],
-      ingredient:['',Validators.required],
-      NBperson:['',Validators.required],
-      difficulty:['',Validators.required],
-      note:['',Validators.required],
-      duration:['',Validators.required],
-      
-    
-    }); }
-*/  
 onUploadFile(file: File) {
   this.fileIsUploading = true;
   this.courseService.uploadFile(file).then(
@@ -88,7 +70,7 @@ getTypes(){
 
   private addCheckboxes() {
     this.typesCategories.forEach((o, i) => {
-      const control = new FormControl(i === 0); // if first item set to true, else false
+      const control = new FormControl(); // if first item set to true, else false
       (this.courseForm.controls.types as FormArray).push(control);
     });
   }
@@ -103,14 +85,11 @@ getTypes(){
     const name=this.courseForm.get('name').value;
 
 
-    const selectedOrderIds = this.courseForm.value.types
+    const categoryselected = this.courseForm.value.types
     .map((v, i) => v ? this.typesCategories[i].name : null)
     .filter(v => v !== null);
 
 
- //   const category=this.courseForm.get('category').value;
-   // const selectedCategory = this.typesCategories.filter((category, index) => category[index]);
-   // selectedCategory this.formBuilder.control.name
     const duration=this.courseForm.get('duration').value;
     const note=this.courseForm.get('note').value;
     const preparation=this.courseForm.get('preparation').value;
@@ -120,7 +99,7 @@ getTypes(){
 
 
     const ingeredient=this.courseForm.get('ingredient').value;
-    const newCourse=new Course(name,duration,NBperson,difficulty,note,selectedOrderIds);
+    const newCourse=new Course(name,duration,NBperson,difficulty,note,categoryselected);
     newCourse.preparation=preparation;
     newCourse.ingredient=ingeredient;
 
@@ -129,7 +108,7 @@ getTypes(){
     }
 
     console.log("le cours à enregistrer est :name= "+
-     name +' , category=  '+ selectedOrderIds  +' , duration  '+
+     name +' , category=  '+ categoryselected  +' , duration  '+
       duration  +' , note '+ note  +' , preparation ='+ 
       preparation  +' , ingredient= '+ ingeredient+' , nbperson=  '+
       NBperson+'  , difficulte= '+ difficulty)

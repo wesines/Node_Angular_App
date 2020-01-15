@@ -15,11 +15,12 @@ import { CoursesService } from './services/courses.service';
 import { AuthguardService } from './services/authguard.service';
 import {  BorderCardDirective } from './borderpkm-card.directive';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
-import { NoteandcommentComponent } from './course-list/single-course/noteandcomment/noteandcomment.component';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { environment } from 'src/environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { CourseUpdateComponent } from './course-list/course-update/course-update.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestor
     SignupComponent,
     HeaderComponent,
     BorderCardDirective,
-    NoteandcommentComponent
+    CourseUpdateComponent,
+    
 
   ],
   imports: [
@@ -38,16 +40,14 @@ import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestor
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule,
- //  AngularFireDatabaseModule,
-    //AngularFireModule.initializeApp(firebaseConfig),
-  //  AngularFireDatabaseModule,
-  //  AngularFireAuthModule,
+    AngularFireDatabaseModule,
     ConfirmationPopoverModule.forRoot({ confirmButtonType: 'danger'}), // set defaults here
     AppRoutingModule
   ],
-  providers: [AuthService,CoursesService,AngularFirestore,AuthguardService],
+  providers: [AuthService,CoursesService,AuthguardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

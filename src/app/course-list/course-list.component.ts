@@ -37,24 +37,10 @@ etoilevide:number;
     console.log("this.course.length"+this.courseService.getCourses.length);
   }
 
-/*
-onNoteEtoile(id:number){
- this.courseService.getSingleCourses(id).then(
-      (course:Course)=>{
-      this.cours=course;
-      }
- );
-if( this.cours.note == 5 )
-return this.etoilevide=0;
-else
-{
-
-  this.etoilevide=5-this.cours.note;
-}
 
 
-}
-*/
+
+
 
 
   onNewCourse(){
@@ -69,6 +55,9 @@ else
     this.router.navigate(['/courses','view',id]);
   }
 
+  onEditCourses(id:number){
+    this.router.navigate(['/courses','edit',id]);
+  }
   onDestroy(){
     this.CourseSubscription.unsubscribe();
   }

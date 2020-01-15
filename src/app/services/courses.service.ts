@@ -52,27 +52,20 @@ export class CoursesService  {
       }
     );
   }
-  createCoffeeOrder(data) {
-    return new Promise<any>((resolve, reject) =>{
-        this.firestore
-            .collection("coffeeOrders")
-            .add(data)
-            .then(res => {}, err => reject(err));
-    });
-}
+
 
   creatNewCourse(newCourse:Course){
-    return new Promise<any>((resolve, reject) =>{
+ /*    return new Promise<any>((resolve, reject) =>{
       this.firestore
           .collection("coffeeOrders")
           .add(newCourse)
           .then(res => {}, err => reject(err));
-  });
-   /* console.log('i am in create new course"');
+  });*/
+   console.log('i am in create new course"');
     this.courses.push(newCourse);
     this.saveCourses();
     this.emitCourses();
-    console.log("this.courses.length"+this.courses.length);*/
+    console.log("this.courses.length"+this.courses.length);
   }
 removeCourses(course: Course){
   console.log("i am in service remove");

@@ -6,7 +6,7 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { CourseFormComponent } from './course-list/course-form/course-form.component';
 import { SingleCourseComponent } from './course-list/single-course/single-course.component';
 import { AuthguardService } from './services/authguard.service';
-import { NoteandcommentComponent } from './course-list/single-course/noteandcomment/noteandcomment.component';
+import { CourseUpdateComponent } from './course-list/course-update/course-update.component';
 
 
 const routes: Routes = [
@@ -15,8 +15,8 @@ const routes: Routes = [
   {path:'courses',canActivate: [AuthguardService],component:CourseListComponent},
   {path:'courses/new',canActivate: [AuthguardService],component:CourseFormComponent},
   {path:'courses/view/:id',canActivate: [AuthguardService],component:SingleCourseComponent},
-  {path:'courses/noteandcomments/:id',canActivate: [AuthguardService],component:NoteandcommentComponent},
   {path:'',redirectTo:'courses',pathMatch:'full'},
+  {path:'courses/edit/:id',canActivate: [AuthguardService],component:CourseUpdateComponent},
   {path:'full',redirectTo:'courses'}
 
 

@@ -5,6 +5,7 @@
     <div class="col-6">  <h1>   {{ cours.name }}  </h1></div>
     <div class="col"></div>
   </div>
+  <!--
  <div class="row"  class="doNotPrint">
     <div class="col" style="align-items: center;">
       <table style="align-items:center"><tr><td>
@@ -16,7 +17,7 @@
     <span  *ngFor='let N of tabetoilepleine ; index as NB '>
       <img src="../assets/images/etoilevide.png"  style="width: 30px;height:30px" >
     </span>
-    <span><a href="courses/noteandcomments/{{index}}">Avis et commentaire</a></span>
+  
      </td> </tr></table>
     
   
@@ -24,7 +25,7 @@
     <div class="col"></div>
     <div class="col"></div>
   </div>
-
+-->
 
   <div class="row"  class="doNotPrint">
     <div class="col"><img src="{{ cours.image }}" ></div>
@@ -61,8 +62,10 @@
   <div class="row">
     <div class="col"><span class="titre"> Ingredients </span></div>
     <div class="col"><span class="titre">Préparation</span></div>
-    <div class="col"><h5   (click)="onPrint()">Imprimer</h5> 
-      <img  (click)="onPrint()" src="../assets/images/imprimer.png"  style="width: 16px;height:16px" ></div>
+    <div class="col">
+      <img  (click)="onPrint()" src="../assets/images/imprimer.png"  style="width: 16px;height:16px;" alt="Imprimer"  >
+      <h5 style="font: 13px Trebuchet MS;"  (click)="onPrint()">Imprimer</h5> 
+    </div>
   </div>
   <div class="row">
     <div class="col"> {{ cours.ingredient }} </div>

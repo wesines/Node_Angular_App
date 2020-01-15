@@ -8,7 +8,7 @@ import * as firebase from 'firebase';
 })
 export class AppComponent {
   constructor(){
-  var firebaseConfig = {
+  /*var firebaseConfig = {
     apiKey: "AIzaSyD1JhtPCi4IO-OBAyQjxSqm1F9yPgyGjok",
     authDomain: "angularapllicationproject.firebaseapp.com",
     databaseURL: "https://angularapllicationproject.firebaseio.com",
@@ -17,7 +17,7 @@ export class AppComponent {
     messagingSenderId: "388919992098",
     appId: "1:388919992098:web:f51e267ad2777772fdcf7b"
   };
-   firebase.initializeApp(firebaseConfig);
+   firebase.initializeApp(firebaseConfig);*/
 }
   // Initialize Firebase
  
