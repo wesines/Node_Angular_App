@@ -1,8 +1,6 @@
 ## Bienvenue to AngularApplication ##
-
-J'ai crée AngularApplication est une application de gestion de recettes de cuisine.
-A partir de cette application, vous créez votre compte utilisateur, vous vous authentifiez, après vous êtes inviter à créer votre annuaire de recettes (Vous pouvez ajouter, consulter et supprimer les recettes)
-
+- AngularApplication est une application de gestion de recettes de cuisine.
+- A partir de cette application, vous créez votre compte utilisateur, vous vous authentifiez, après vous êtes inviter à créer votre annuaire de recettes (Vous pouvez ajouter, consulter et supprimer les recettes)
 
 
 ### Technologies utilisées ###
